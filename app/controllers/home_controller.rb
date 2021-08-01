@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
 
   def status
+    @reload_ids = ["1", "2"]
     @textContent = "#{@@reload_count}/#{RELOAD_MAX}, #{Time.now}"
 
     @@reload_count += 1
