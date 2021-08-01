@@ -10,14 +10,14 @@ export default class extends Controller {
   connect() {
     this.intervalId = setInterval(() => {
       if (this.canReload()) {
-        this.fetchStream()
+        this.updateElements()
       } else {
         this.stopReloading()
       }
     }, 1000);
   }
 
-  fetchStream() {
+  updateElements() {
     fetch(this.urlValue, { headers: { 'Accept': 'text/vnd.turbo-stream.html' } })
       .then(response => response.text())
       .then(message => Turbo.renderStreamMessage(message))
