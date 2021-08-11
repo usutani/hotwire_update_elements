@@ -17,6 +17,10 @@ export default class extends Controller {
     }, 1000);
   }
 
+  disconnect() {
+    this.stopReloading()
+  }
+
   updateElements() {
     fetch(this.urlValue, { headers: { 'Accept': 'text/vnd.turbo-stream.html' } })
       .then(response => response.text())
